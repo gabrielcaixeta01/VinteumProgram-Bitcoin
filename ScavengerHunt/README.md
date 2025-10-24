@@ -1,8 +1,111 @@
+# Bitcoin Dev Launchpad — Vinteum
+
+Bem-vindo ao Bitcoin Dev Launchpad da Vinteum — uma coleção de desafios práticos criados para desenvolvedores brasileiros que querem aprender na prática sobre Bitcoin.
+
+Este repositório agrupa exercícios passados usados em meetups e aulas da comunidade para introduzir conceitos fundamentais do ecossistema Bitcoin, operação de nós, ferramentas de linha de comando e automação simples.
+
+## Objetivo
+
+- Fornecer desafios hands-on para acelerar o aprendizado sobre Bitcoin.
+- Cobrir tópicos práticos com scripts e exercícios fáceis de executar.
+- Servir como material de referência para novos membros da comunidade Vinteum.
+
+## Público-alvo
+
+- Desenvolvedores, estudantes e entusiastas do Bitcoin no Brasil que já possuem conhecimentos básicos de linha de comando (bash/zsh).
+
+## Estrutura do repositório
+
+- `README.md` — este arquivo.
+- `results.txt` — resultados agregados ou instruções de execução (uso livre para resultados dos exercícios).
+- `solutions/` — scripts dos desafios (por ex. `001.sh`, `002.sh`, ...). Cada arquivo é um exercício/solução em shell.
+
+Exemplo de árvore:
+
+```
+ScavengerHunt/
+  README.md
+  results.txt
+  solutions/
+    001.sh
+    002.sh
+    ...
+```
+
+## Pré-requisitos
+
+- macOS ou Linux (ambiente com `bash`/`zsh`).
+- Permissões para executar scripts (pode ser necessário `chmod +x`).
+
+## Como executar os desafios
+
+1. Abra um terminal na pasta do repositório (onde está este `README.md`).
+
+2. Para executar um desafio específico (por exemplo `001.sh`):
+
+```bash
+# torne o script executável (se necessário)
+chmod +x solutions/001.sh
+
+# execute o script
+./solutions/001.sh
+```
+
+Ou simplesmente:
+
+```bash
+bash solutions/001.sh
+```
+
+3. Para executar todos os desafios em sequência:
+
+```bash
+for f in solutions/*.sh; do
+  echo "--- Executando: $f ---"
+  bash "$f"
+done
+```
+
+Observação: alguns scripts podem pedir interação ou exibir instruções na saída; leia com atenção.
+
+## Uso do `results.txt`
+
+O arquivo `results.txt` pode ser usado para registrar respostas, saídas esperadas, ou status de execução dos exercícios. Fique à vontade para atualizar ou manter um arquivo separado para anotações pessoais.
+
+## Como contribuir
+
+- Abra uma _issue_ para sugerir novos desafios, corrigir instruções ou reportar problemas.
+- Envie um _pull request_ com melhorias — por exemplo novos scripts, correções de texto ou exemplos adicionais.
+- Mantenha as mudanças pequenas e bem descritas no corpo do PR.
+
+Sugestões de contribuição:
+
+- adicionar testes ou verificadores automáticos para cada desafio;
+- documentar dependências específicas quando necessário;
+- traduzir conteúdos ou anotações para aumentar o alcance.
+
+## Boas práticas
+
+- Não execute scripts de fontes não confiáveis sem revisar o conteúdo primeiro.
+- Use um ambiente isolado (máquina virtual ou container) se estiver inseguro sobre um script.
+
+## Licença
+
+Este repositório contém material educativo. Se quiser aplicar uma licença explícita (por ex. MIT), adicione um arquivo `LICENSE` e indique a licença desejada. Até lá, considere o conteúdo como aberto para uso educacional e contribuições da comunidade.
+
+## Contato
+
+Para dúvidas ou comunicação relacionada ao Launchpad: equipe Vinteum (comunidade de desenvolvedores Bitcoin do Brasil). Abra uma _issue_ ou entre em contato pelos canais oficiais da organização.
+
+---
+
+Obrigado por aprender com o Bitcoin Dev Launchpad — bons estudos!
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/0_jITv34)
+
 # RPC Scavenger Hunt
 
 These exercises require a synced mainnet full node with the transaction index
-active (`-txindex=1`). 
+active (`-txindex=1`).
 Vinteum provides credentials to a hosted node with an authenticated proxy so students can complete the exercises using `bitcoin-cli` locally but without needing to sync a full node themselves.
 To use the proxy you must have `bitcoin-cli` installed.
 It is part of the package you can download from [bitcoincore.org](https://bitcoincore.org/bin/bitcoin-core-30.0/).
@@ -28,8 +131,7 @@ rpcpassword=<student_pass>
 
 ...and then execute `bitcoin-cli getblockcount` without extra options.
 
-*HINT*: Use `bitcoin-cli help` and `bitcoin-cli help <command name>` to learn what commands are available and what they do.
-
+_HINT_: Use `bitcoin-cli help` and `bitcoin-cli help <command name>` to learn what commands are available and what they do.
 
 ## Expected submissions
 
@@ -37,7 +139,7 @@ Every question must be answered by providing a bash script that executes `bitcoi
 commands.
 No other commands should be necessary besides bash operators (for loops, if/else logic, etc) and `jq`, which is a JSON parsing command you may need to manually install on your system.
 
-*HINT*: `jq` is your best friend, learn to use it and you'll be able to significantly speedup your solutions.
+_HINT_: `jq` is your best friend, learn to use it and you'll be able to significantly speedup your solutions.
 
 Each script should output a single line to stdout with the required answer and nothing else.
 
@@ -76,10 +178,12 @@ Answer as many as you can. Some are easy, some are very hard!
 [003.sh](/submission/003.sh): How many new outputs were created by block 123,456?
 
 [004.sh](/submission/004.sh): Using descriptors, compute the taproot address at index 100 derived from this extended public key:
-  - `xpub6Cx5tvq6nACSLJdra1A6WjqTo1SgeUZRFqsX5ysEtVBMwhCCRa4kfgFqaT2o1kwL3esB1PsYr3CUdfRZYfLHJunNWUABKftK2NjHUtzDms2`
+
+- `xpub6Cx5tvq6nACSLJdra1A6WjqTo1SgeUZRFqsX5ysEtVBMwhCCRa4kfgFqaT2o1kwL3esB1PsYr3CUdfRZYfLHJunNWUABKftK2NjHUtzDms2`
 
 [005.sh](/submission/005.sh): Create a 1-of-4 P2SH multisig address from the public keys in the four inputs of this tx:
-  - `37d966a263350fe747f1c606b159987545844a493dd38d84b070027a895c4517`
+
+- `37d966a263350fe747f1c606b159987545844a493dd38d84b070027a895c4517`
 
 ### Requires multiple `bitcoin-cli` commands with `jq` and bash loops/conditionals
 
@@ -88,16 +192,18 @@ Answer as many as you can. Some are easy, some are very hard!
 [007.sh](/submission/007.sh): Only one single output remains unspent from block 123,321. What address was it sent to?
 
 [008.sh](/submission/008.sh): Which public key signed input 0 in this tx:
-  - `e5969add849689854ac7f28e45628b89f7454b83e9699e551ce14b6f90c86163`
+
+- `e5969add849689854ac7f28e45628b89f7454b83e9699e551ce14b6f90c86163`
 
 [009.sh](/submission/009.sh): How many satoshis did this transaction pay for fee?
-  - `c346d9277128f5d67740f8847f11aff5cef440b6d102fcd5ddcdb40d9a12df42`
+
+- `c346d9277128f5d67740f8847f11aff5cef440b6d102fcd5ddcdb40d9a12df42`
 
 [010.sh](/submission/010.sh): Only one tx in block 444,431 signals opt-in RBF. What is its txid?
 
 ## Example:
 
-*How many transactions are confirmed in block 666,666?*
+_How many transactions are confirmed in block 666,666?_
 
 Using local full node (or with proxy settings in `bitcoin.conf`):
 
