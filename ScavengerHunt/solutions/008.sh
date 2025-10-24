@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
-CONF="$HOME/developer/bitcoin-remote/.bitcoin.conf"
+
+# pasta onde o script está
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# bitcoin.conf fica em ../.config relativo à pasta solutions/
+CONF="${CONF:-$DIR/../.config/bitcoin.conf}"
 
 TXID="e5969add849689854ac7f28e45628b89f7454b83e9699e551ce14b6f90c86163"
 

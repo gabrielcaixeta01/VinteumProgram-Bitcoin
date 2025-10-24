@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONF="$HOME/developer/bitcoin-remote/.bitcoin.conf"
+# pasta onde o script está
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# bitcoin.conf fica em ../.config relativo à pasta solutions/
+CONF="${CONF:-$DIR/../.config/bitcoin.conf}"
 
 # Cole aqui o TXID exatamente como está no enunciado (da sua imagem):
 TXID="37d966a263350fe747f1c606b159987545844a493dd38d84b070027a895c4517"
